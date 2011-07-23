@@ -11,17 +11,20 @@
 </p>
 
 <h2>Price Records</h2>
+<table>
+  <tr>
+   <th>Amount</th>
+    <th>Recorded at:</th>
+ </tr>
+
 <% @item.price_records.each do |price_record| %>
-  <p>
-    <b>Amount:</b>
-    <%= price_record.amount %>
-  </p>
- 
-  <p>
-    <b>Time Recorded:</b>
-    <%= price_record.created_at %>
-  </p>
+ <tr>
+   <td>$<%= Float(price_record.amount)/100 %></td>
+    <td><%= price_record.created_at %></td>
+ </tr>
 <% end %>
+</table>
+
 
 <h2>Record Price</h2>
 <%= form_for([@item, @item.price_records.build]) do |f| %>
