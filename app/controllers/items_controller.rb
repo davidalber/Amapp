@@ -32,11 +32,6 @@ class ItemsController < ApplicationController
     end
   end
 
-  # GET /items/1/edit
-  def edit
-    @item = Item.find(params[:id])
-  end
-
   # POST /items
   # POST /items.xml
   def create
