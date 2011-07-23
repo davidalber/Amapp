@@ -2,7 +2,7 @@ class ItemsController < ApplicationController
   # GET /items
   # GET /items.xml
   def index
-    @items = Item.all
+    @items = Item.all.sort_by &:title
 
     respond_to do |format|
       format.html # index.html.erb
