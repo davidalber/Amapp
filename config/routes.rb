@@ -1,5 +1,7 @@
 Amapp::Application.routes.draw do
-  resources :items
+  resources :items do
+    resources :price_records
+  end
 
   get "home/index"
 

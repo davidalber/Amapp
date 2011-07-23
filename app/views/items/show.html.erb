@@ -10,6 +10,24 @@
   <%= @item.title %>
 </p>
 
+<h2>Price Records</h2>
+<% @item.price_records.each do |price_record| %>
+  <p>
+    <b>Amount:</b>
+    <%= price_record.amount %>
+  </p>
+ 
+  <p>
+    <b>Time Recorded:</b>
+    <%= price_record.created_at %>
+  </p>
+<% end %>
 
-<%= link_to 'Edit', edit_item_path(@item) %> |
+<h2>Record Price</h2>
+<%= form_for([@item, @item.price_records.build]) do |f| %>
+<div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
 <%= link_to 'Back', items_path %>
