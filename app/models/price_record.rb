@@ -21,13 +21,17 @@ private
 
   # Check if the ASIN is a valid Amazon item and set title if it is.
   def set_item_price
-    rg = ResponseGroup.new('Offers')
+    rg = ResponseGroup.new('Offers', 'ItemAttributes')
     begin
       resp = get_item(rg)
       item = resp.item_lookup_response[0].items[0].item
-      self.amount = item.offers.offer.offer_listing.price.amount
     rescue Error::InvalidParameterValue
       errors.add(:asin, "Invalid ASIN")
+    end
+    begin
+      self.amount = item.offers.offer.offer_listing.price.amount
+    rescue NoMethodError
+      self.amount = item.item_attributes.list_price.amount
     end
   end
 end
