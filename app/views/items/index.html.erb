@@ -2,8 +2,8 @@
 
 <table>
   <tr>
+   <th>Title</th>
     <th>Asin</th>
-    <th>Title</th>
     <th></th>
     <th></th>
     <th></th>
@@ -11,8 +11,8 @@
 
 <% @items.each do |item| %>
   <tr>
+   <td><%= item.title %></td>
     <td><%= item.asin %></td>
-    <td><%= item.title %></td>
     <td><%= link_to 'Show', item %></td>
     <td><%= link_to 'Edit', edit_item_path(item) %></td>
     <td><%= link_to 'Destroy', item, :confirm => 'Are you sure?', :method => :delete %></td>
