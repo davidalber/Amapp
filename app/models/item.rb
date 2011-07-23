@@ -10,6 +10,7 @@ class Item < ActiveRecord::Base
 
   after_validation :set_title
 
+private
   def set_title
     il = ItemLookup.new( 'ASIN', { 'ItemId' => asin,
                            'MerchantId' => 'Amazon' } )
