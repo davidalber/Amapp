@@ -2,20 +2,20 @@
 
 <table>
   <tr>
-   <th>Title</th>
+    <th>Title</th>
     <th>Asin</th>
     <th></th>
-   <th></th>
+    <th></th>
   </tr>
 
-<% @items.each do |item| %>
+  <% @items.each do |item| %>
   <tr>
-   <td><%= item.title %></td>
+    <td><%= item.title %></td>
     <td><%= item.asin %></td>
     <td><%= link_to 'Show', item %></td>
-   <td><%= link_to 'Destroy', item, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Destroy', item, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
-<% end %>
+  <% end %>
 </table>
 
 <br />
