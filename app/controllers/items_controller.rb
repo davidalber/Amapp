@@ -21,6 +21,17 @@ class ItemsController < ApplicationController
     end
   end
 
+  # GET /items/1/plot
+  # GET /items/1/plot.xml
+  def plot
+    @item = Item.find(params[:id])
+
+    respond_to do |format|
+      format.html # show.html.erb
+      format.xml  { render :xml => @item.price_records }
+    end
+  end
+
   # GET /items/new
   # GET /items/new.xml
   def new

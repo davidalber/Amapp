@@ -1,5 +1,8 @@
 Amapp::Application.routes.draw do
   resources :items do
+    member do
+      get 'plot'
+    end
     resources :price_records
   end
 

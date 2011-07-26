@@ -1,0 +1,19 @@
+<%= javascript_include_tag "dygraph-combined" %>
+
+<div id="graphdiv"></div>
+<script type="text/javascript">
+  g = new Dygraph(
+  document.getElementById("graphdiv"),
+
+  // CSV or path to a CSV file.
+  "Date,Price\n" +
+  <% length = @item.price_records.length %>
+  <% plus = ' +' %>
+  <% for i in 0..length-1 %>
+  <% price_record = @item.price_records[i] %>
+  <% if i == length-1;  plus = ''; end %>
+  "<%= price_record.created_at %>,<%= Float(price_record.amount)/100 %>\n"<%= plus %>
+  <% end %>
+);
+</script>
+
