@@ -19,7 +19,7 @@
 
   <% @item.price_records.each do |price_record| %>
   <tr>
-    <td>$<%= Float(price_record.amount)/100 %></td>
+    <td>$<%= '%.2f' % (Float(price_record.amount)/100) %></td>
     <td><%= price_record.created_at %></td>
   </tr>
   <% end %>
