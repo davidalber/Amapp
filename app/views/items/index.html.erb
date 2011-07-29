@@ -4,15 +4,13 @@
   <tr>
     <th>Title</th>
     <th>Asin</th>
-    <th></th>
-    <th></th>
+   <th></th>
   </tr>
 
   <% @items.each do |item| %>
   <tr>
-    <td><%= item.title %></td>
+    <td><%= link_to item.title, item %></td>
     <td><%= item.asin %></td>
-    <td><%= link_to 'Show', item %></td>
     <td><%= link_to 'Destroy', item, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
   <% end %>
